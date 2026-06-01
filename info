@@ -1,0 +1,17 @@
+#!/bin/bash
+
+# Description: Displays info about the the dotfiles setup
+
+dotfiles_dir="$HOME/dotfiles"
+# files_count="$(ls "$PWD" | wc -l)"
+today=$(date +%Y-%m-%d)
+files_count_find="$(find "$PWD" -maxdepth 1 -mindepth 1 | grep -v "git" -c)"
+
+
+echo "=== Dotfiles Info ==="
+
+echo "User: $USER"
+echo "Location: $dotfiles_dir"
+# echo "Number of files: $files_count"
+echo "Number of files: $files_count_find"
+echo "Date: $today"
