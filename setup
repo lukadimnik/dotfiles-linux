@@ -3,6 +3,8 @@
 # Description: Link dotfiles to home directory
 
 mkdir -p ~/.config
+cd ..
+mv dotfiles-linux dotfiles  # Rename the folder to make it simpler to work with
 
 ln -sf ~/dotfiles/bashrc ~/.bashrc
 ln -sf ~/dotfiles/vimrc ~/.vimrc
