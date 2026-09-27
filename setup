@@ -1,14 +1,9 @@
 #!/bin/bash
 
-# Description: Link dotfiles to home directory
+set -euo pipefail
 
-mkdir -p ~/.config
-cd ..
-mv dotfiles-linux dotfiles  # Rename the folder to make it simpler to work with
+if ! command -v chezmoi >/dev/null; then
+  sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply git@github.com:lukadimnik/dotfiles-linux.git
+fi
 
-ln -sf ~/dotfiles/bashrc ~/.bashrc
-ln -sf ~/dotfiles/vimrc ~/.vimrc
-ln -sf ~/dotfiles/tmux.conf ~/.tmux.conf
-
-echo "Dotfiles linked!"
-
+exit 0
